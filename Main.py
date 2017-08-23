@@ -19,22 +19,22 @@ while reparto != 1:
                 civ[0] = civnot[0]
                 civnotnot[0] = 1
                 civdonnum = 1
-        if civ[0] == 1:
+        elif civ[0] == 1:
             if civnotnot[1] == 0:
                 civ[0] = civnot[1]
                 civnotnot[1] = 1
                 civdonnum = 1
-        if civ[0] == 2:
+        elif civ[0] == 2:
             if civnotnot[2] == 0:
                 civ[0] = civnot[2]
                 civnotnot[2] = 1
                 civdonnum = 1
-        if civ[0] == 3:
+        elif civ[0] == 3:
             if civnotnot[3] == 0:
                 civ[0] = civnot[3]
                 civnotnot[3] = 1
                 civdonnum = 1
-        if civ[0] == 4:
+        elif civ[0] == 4:
             if civnotnot[4] == 0:
                 civ[0] = civnot[4]
                 civnotnot[4] = 1
@@ -49,22 +49,22 @@ while reparto != 1:
                 civ[1] = civnot[0]
                 civnotnot[0] = 1
                 civdonnum = 2
-        if civ[1] == 1:
+        elif civ[1] == 1:
             if civnotnot[1] == 0:
                 civ[1] = civnot[1]
                 civnotnot[1] = 1
                 civdonnum = 2
-        if civ[1] == 2:
+        elif civ[1] == 2:
             if civnotnot[2] == 0:
                 civ[1] = civnot[2]
                 civnotnot[2] = 1
                 civdonnum = 2
-        if civ[1] == 3:
+        elif civ[1] == 3:
             if civnotnot[3] == 0:
                 civ[1] = civnot[3]
                 civnotnot[3] = 1
                 civdonnum = 2
-        if civ[1] == 4:
+        elif civ[1] == 4:
             if civnotnot[4] == 0:
                 civ[1] = civnot[4]
                 civnotnot[4] = 1
@@ -79,22 +79,22 @@ while reparto != 1:
                 civ[2] = civnot[0]
                 civnotnot[0] = 1
                 civdonnum = 3
-        if civ[2] == 1:
+        elif civ[2] == 1:
             if civnotnot[1] == 0:
                 civ[2] = civnot[1]
                 civnotnot[1] = 1
                 civdonnum = 3
-        if civ[2] == 2:
+        elif civ[2] == 2:
             if civnotnot[2] == 0:
                 civ[2] = civnot[2]
                 civnotnot[2] = 1
                 civdonnum = 3
-        if civ[2] == 3:
+        elif civ[2] == 3:
             if civnotnot[3] == 0:
                 civ[2] = civnot[3]
                 civnotnot[3] = 1
                 civdonnum = 3
-        if civ[2] == 4:
+        elif civ[2] == 4:
             if civnotnot[4] == 0:
                 civ[2] = civnot[4]
                 civnotnot[4] = 1
@@ -109,22 +109,22 @@ while reparto != 1:
                 civ[3] = civnot[0]
                 civnotnot[0] = 1
                 civdonnum = 4
-        if civ[3] == 1:
+        elif civ[3] == 1:
             if civnotnot[1] == 0:
                 civ[3] = civnot[1]
                 civnotnot[1] = 1
                 civdonnum = 4
-        if civ[3] == 2:
+        elif civ[3] == 2:
             if civnotnot[2] == 0:
                 civ[3] = civnot[2]
                 civnotnot[2] = 1
                 civdonnum = 4
-        if civ[3] == 3:
+        elif civ[3] == 3:
             if civnotnot[3] == 0:
                 civ[3] = civnot[3]
                 civnotnot[3] = 1
                 civdonnum = 4
-        if civ[3] == 4:
+        elif civ[3] == 4:
             if civnotnot[4] == 0:
                 civ[3] = civnot[4]
                 civnotnot[4] = 1
@@ -139,22 +139,22 @@ while reparto != 1:
                     civ[4] = civnot[0]
                     civnotnot[0] = 1
                     civdonnum = 5
-            if civ[4] == 1:
+            elif civ[4] == 1:
                 if civnotnot[1] == 0:
                     civ[4] = civnot[1]
                     civnotnot[1] = 1
                     civdonnum = 5
-            if civ[4] == 2:
+            elif civ[4] == 2:
                 if civnotnot[2] == 0:
                     civ[4] = civnot[2]
                     civnotnot[2] = 1
                     civdonnum = 5
-            if civ[4] == 3:
+            elif civ[4] == 3:
                 if civnotnot[3] == 0:
                     civ[4] = civnot[3]
                     civnotnot[3] = 1
                     civdonnum = 5
-            if civ[4] == 4:
+            elif civ[4] == 4:
                 if civnotnot[4] == 0:
                     civ[4] = civnot[4]
                     civnotnot[4] = 1
