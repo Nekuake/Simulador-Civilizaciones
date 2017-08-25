@@ -1,5 +1,9 @@
 from random import randint
+zona = ["Mediterráneo","Oriente Próximo","Europa Oeste","Europa Este","Norte de Asia","Australia","Asia Este","Sudamérica","Norteamérica"]
+zonanot = []
 civnotnot = [0,0,0,0,0]
+civzona = [0,0,0,0,0]
+civ = [0,0,0,0,0]
 civnot = ["Arabia","Grecia","Roma","Egipto","Mesopotamia"]
 def repartofuncion ():
     global civdon
@@ -33,4 +37,36 @@ def repartofuncion ():
                 civtemp = civnot[4]
                 civnotnot[4] = 1
                 civdonnum = 1
+    return civtemp
+
+def repartozonas ():
+    global zona
+    civtemp = randint(0,8)
+    if civtemp == 0:
+        civtemp = zona[0]
+        civdonnum = 1
+    elif civtemp == 1:
+        civtemp = zona[1]
+        civdonnum = 1
+    elif civtemp == 2:
+        civtemp = zona[2]
+        civdonnum = 1
+    elif civtemp == 3:
+        civtemp = zona[3]
+        civdonnum = 1
+    elif civtemp == 4:
+        civtemp = zona[4]
+        civdonnum = 1
+    elif civtemp == 5:
+        civtemp = zona[5]
+        civdonnum = 1
+    elif civtemp == 6:
+        civtemp = zona[6]
+        civdonnum = 1
+    elif civtemp == 7:
+        civtemp = zona[7]
+        civdonnum = 1
+    elif civtemp == 8:
+        civtemp = zona[8]
+        civdonnum = 1
     return civtemp
