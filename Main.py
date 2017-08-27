@@ -1,8 +1,6 @@
 #!/usr/bin/env python
 # -*- codcivdoning: utf-8 -*-
 import os
-from random import randint                      #Para la aleatoriedad
-import os
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
