@@ -12,25 +12,27 @@ finishing = 0
 turno = 0
 civtemp= 0                                      #Variable temporal para todos los repartos
 reparto = 0                                     #Variable que determina si la generación inicial ha terminado y se puede salir del while (lin= )
-civdon = [0,0,0,0,0]
+civdon = [0, 0, 0, 0, 0]
 civdonnum = 0                                   #Variable que muestra en que lugar de las 5 civilizaciones se encuentra la generación
-civ = [0,0,0,0,0]
-zonaclaimed = [0,0,0,0,0,0,0,0]
-civzona = [0,0,0,0,0]
-poblacion = [0,0,0,0,0]
-dinero = [0,0,0,0,0]
-belicismo = [0,0,0,0,0]
-sabiduria = [0,0,0,0,0]
-agricultura = [0,0,0,0,0]
-industria = [0,0,0,0,0]
-niveltecnologico = [0,0,0,0,0]
-podermilitar = [0,0,0,0,0]
+civ = [0, 0, 0, 0, 0]
+zonaclaimed = [0, 0, 0, 0, 0, 0, 0, 0]
+civzona = [0, 0, 0, 0, 0]
+poblacion = [0, 0, 0, 0, 0]
+dinero = [0, 0, 0, 0, 0]
+belicismo = [0, 0, 0, 0, 0]
+sabiduria = [0, 0, 0, 0, 0]
+agricultura = [0, 0, 0, 0, 0]
+industria = [0, 0, 0, 0, 0]
+niveltecnologico = [0, 0, 0, 0, 0]
+podermilitar = [0, 0, 0, 0, 0]
 nedad =  0
-zona = ["Mediterráneo","Oriente Próximo","Europa Oeste","Europa Este","Norte de Asia","Australia","Asia Este","Sudamérica","Norteamérica"]
+zona = ["Mediterráneo", "Oriente Próximo", "Europa Oeste", "Europa Este", "Norte de Asia", "Australia", "Asia Este", "Sudamérica", "Norteamérica"]
 zonanot = []
-civnot = ["Arabia","Grecia","Roma","Egipto","Mesopotamia"]
+civnot = ["Arabia", "Grecia", "Roma", "Egipto", "Mesopotamia"]
 civnotnot = []
-def comienzopartida ():
+
+
+def comienzopartida():
     global civ
     global civzona
     print("Las primeras tribus de las civilizaciones se reúnen entre ellas")
@@ -39,7 +41,9 @@ def comienzopartida ():
     print(civ[2], " toma", civzona[2], " como su hogar.")
     print("Las tierras de ", civzona[3], "pertenecen a", civ[3])
     print("Por último, las fuerzas de ", civ[4], " se asientan en", civzona[4])
-def comienzoturno ():
+
+
+def comienzoturno():
     global nedad
     global finishing
     if not nedad > 61:
@@ -47,15 +51,20 @@ def comienzoturno ():
         print("Estamos en", edad[nedad])
     else:
         finishing = 1
+
+
 def finish():
     global finished
     finished = 1
     exit
+
+
 def progresotecnologico():
     global sabiduria
     global niveltecnologico
     avance = sabidura[turno] * (dinero[turno] * 0.1) / 100
     niveltecnologico [turno] = avance + niveltecnologico[turno]
+
 
 def progresoeconomico():
     global agricultura
@@ -66,6 +75,7 @@ def progresoeconomico():
     global niveltecnologico
     dinero[turno] = (agricultura[turno] * 0.3 + industria[turno] * 0.6) * niveltecnologico[turno] * 0.2
     print(civ[turno]," ha conseguido")
+
 
 def progresomilitar():
     global dinero
