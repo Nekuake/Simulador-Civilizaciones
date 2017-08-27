@@ -5,21 +5,23 @@ import os
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
 os.chdir(dname)
-zona = ["Mediterráneo","Oriente Próximo","Europa Oeste","Europa Este","Norte de Asia","Australia","Asia Este","Sudamérica","Norteamérica"]
+zona = ["Mediterráneo", "Oriente Próximo", "Europa Oeste", "Europa Este", "Norte de Asia", "Australia", "Asia Este", "Sudamérica", "Norteamérica"]
 zonanot = []
-civnotnot = [0,0,0,0,0]
-civzona = [0,0,0,0,0]
-civ = [0,0,0,0,0]
-civnot = ["Arabia","Grecia","Roma","Egipto","Mesopotamia"]
-def repartofuncion ():
+civnotnot = [0, 0, 0, 0, 0]
+civzona = [0, 0, 0, 0, 0]
+civ = [0, 0, 0, 0, 0]
+civnot = ["Arabia", "Grecia", "Roma", "Egipto", "Mesopotamia"]
+
+
+def repartofuncion():
     global civdon
     global civnot
     global civnotnot
     civdonnum = 0
     while civdonnum != 1:
-        civtemp = randint (0,4)
+        civtemp = randint(0, 4)
         if civtemp == 0:
-            if  civnotnot[0] == 0:
+            if civnotnot[0] == 0:
                 civtemp = civnot[0]
                 civnotnot[0] = 1
                 civdonnum = 1
@@ -35,7 +37,7 @@ def repartofuncion ():
                 civdonnum = 1
         elif civtemp == 3:
             if civnotnot[3] == 0:
-                civtemp =  civnot[3]
+                civtemp = civnot[3]
                 civnotnot[3] = 1
                 civdonnum = 1
         elif civtemp == 4:
@@ -45,9 +47,10 @@ def repartofuncion ():
                 civdonnum = 1
     return civtemp
 
-def repartozonas ():
+
+def repartozonas():
     global zona
-    civtemp = randint(0,8)
+    civtemp = randint(0, 8)
     if civtemp == 0:
         civtemp = zona[0]
         civdonnum = 1
@@ -76,6 +79,8 @@ def repartozonas ():
         civtemp = zona[8]
         civdonnum = 1
     return civtemp
-def caracteriscticas ():
-    civtemp = randint (0, 100)
+
+
+def caracteriscticas():
+    civtemp = randint(0, 100)
     return civtemp
