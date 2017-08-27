@@ -1,4 +1,10 @@
+#!/usr/bin/env python
+# -*- codcivdoning: utf-8 -*-
 from random import randint
+import os
+abspath = os.path.abspath(__file__)
+dname = os.path.dirname(abspath)
+os.chdir(dname)
 zona = ["Mediterráneo","Oriente Próximo","Europa Oeste","Europa Este","Norte de Asia","Australia","Asia Este","Sudamérica","Norteamérica"]
 zonanot = []
 civnotnot = [0,0,0,0,0]
@@ -69,4 +75,7 @@ def repartozonas ():
     elif civtemp == 8:
         civtemp = zona[8]
         civdonnum = 1
+    return civtemp
+def caracteriscticas ():
+    civtemp = randint (0, 100)
     return civtemp
