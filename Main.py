@@ -33,20 +33,32 @@ civnotnot = []
 def comienzopartida():
     global civ
     global civzona
+    global turno
+    global agricultura
+
     print("Las primeras tribus de las civilizaciones se reúnen entre ellas")
     print(civ[0], " se instala en ", civzona[0])
     print(civ[1], ", por su parte, deja el modelo nómada en", civzona[1])
     print(civ[2], " toma", civzona[2], " como su hogar.")
     print("Las tierras de ", civzona[3], "pertenecen a", civ[3])
     print("Por último, las fuerzas de ", civ[4], " se asientan en", civzona[4])
+    while turno != 5:
+        poblacion[turno] = 10
+        agricultura[turno] = 10
+        niveltecnologico[turno] = 0.5
+        turno = turno + 1
+
+
 
 
 def comienzoturno():
     global nedad
     global finishing
+    global turno
     if not nedad > 61:
         nedad = nedad + 1
         print("Estamos en", edad[nedad])
+        turno = 0
     else:
         finishing = 1
 
@@ -57,10 +69,21 @@ def finish():
     exit
 
 
+def progresoturno():
+    global turno
+    while turno != 5:
+        progresotecnologico()
+        progresomilitar()
+        progresoeconomico()
+        turno = turno + 1
+
+
 def progresotecnologico():
     global sabiduria
     global niveltecnologico
-    avance = sabidura[turno] * (dinero[turno] * 0.1) / 100
+    global agricultura
+    global industria
+    avance = sabiduria[turno] * (dinero[turno] * 0.1 * (sabiduria[turno] * 0.05)) / 100
     niveltecnologico [turno] = avance + niveltecnologico[turno]
 
 
@@ -71,9 +94,10 @@ def progresoeconomico():
     global civ
     global dinero
     global niveltecnologico
-    dinero[turno] = (agricultura[turno] * 0.3 + industria[turno] * 0.6) * niveltecnologico[turno] * 0.2
-    print(civ[turno]," ha conseguido")
-
+    avance = (agricultura[turno] * 0.3 + industria[turno] * 0.6) * (niveltecnologico[turno] * 0.2)
+    dinero[turno] = dinero[turno] + avance
+    print(civ[turno]," ha conseguido %.2f" % avance)
+    print(civ[turno], " tiene %.2f" % dinero[turno])
 
 def progresomilitar():
     global dinero
@@ -112,3 +136,4 @@ while not finished:
         finish()
     else:
         comienzoturno()
+        progresoturno()
