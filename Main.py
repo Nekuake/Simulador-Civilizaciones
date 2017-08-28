@@ -85,7 +85,7 @@ def progresotecnologico():
     global industria
     avance = sabiduria[turno] * (dinero[turno] * 0.1 * (sabiduria[turno] * 0.05)) / 100
     niveltecnologico [turno] = avance + niveltecnologico[turno]
-
+    print("El nivel tecnológico de" , civ[turno] ," es de %.2f" % niveltecnologico[turno])
 
 def progresoeconomico():
     global agricultura
@@ -104,6 +104,8 @@ def progresomilitar():
     global podermilitar
     global belicismo
     podermilitar[turno] = belicismo[turno] * niveltecnologico[turno] * (dinero[turno] *(belicismo[turno] * 0.005))
+    dinero[turno] = dinero[turno] - (belicismo[turno] * (dinero[turno] * 0.001))
+    print("El poder militar de" , civ[turno] ," es de %.2f" % podermilitar[turno])
 
 from funciones import repartofuncion
 from funciones import repartozonas
