@@ -1,5 +1,7 @@
+# coding= utf-8
 #!/usr/bin/env python
 # -*- codcivdoning: utf-8 -*-
+from random import randint
 import os
 abspath = os.path.abspath(__file__)
 dname = os.path.dirname(abspath)
@@ -24,6 +26,7 @@ industria = [0, 0, 0, 0, 0]
 niveltecnologico = [0, 0, 0, 0, 0]
 podermilitar = [0, 0, 0, 0, 0]
 nedad =  0
+evento = 0
 zona = ["Mediterráneo", "Oriente Próximo", "Europa Oeste", "Europa Este", "Norte de Asia", "Australia", "Asia Este", "Sudamérica", "Norteamérica"]
 zonanot = []
 civnot = ["Arabia", "Grecia", "Roma", "Egipto", "Mesopotamia"]
@@ -49,8 +52,6 @@ def comienzopartida():
         turno = turno + 1
 
 
-
-
 def comienzoturno():
     global nedad
     global finishing
@@ -63,6 +64,18 @@ def comienzoturno():
         finishing = 1
 
 
+def progresopoblacion():
+    global poblacion
+    global turno
+    global agricultura
+    global dinero
+    if poblacion[turno] > (agricultura[turno]*100):
+        perdida = poblacion[turno] * (randint(25, 75) / 100)
+        poblacion[turno] = poblacion[turno] - perdida
+    else:
+        poblacion[turno] = poblacion[turno]*(agricultura[turno]*0.75)
+    print("La población de", civ[turno]," es de %.0f" % poblacion[turno])
+
 def finish():
     global finished
     finished = 1
@@ -72,9 +85,17 @@ def finish():
 def progresoturno():
     global turno
     while turno != 5:
-        progresotecnologico()
-        progresomilitar()
-        progresoeconomico()
+        if civ[turno] != 0:
+            progresotecnologico()
+            progresomilitar()
+            progresoeconomico()
+            progresopoblacion()
+            evento = randint(1,100)
+            if evento == 1:
+                eventohambruna()
+            if poblacion[turno] <= 0:
+                print("----La civilización de ",civ[turno],"ha desaparecido. Sus logros serán utilizados quizás por el futuro----")
+                civ[turno] = 0
         turno = turno + 1
 
 
@@ -83,7 +104,7 @@ def progresotecnologico():
     global niveltecnologico
     global agricultura
     global industria
-    avance = sabiduria[turno] * (dinero[turno] * 0.1 * (sabiduria[turno] * 0.05)) / 100
+    avance = sabiduria[turno] * (dinero[turno] * 0.01 * (sabiduria[turno] * 0.05)) / 100 * (poblacion[turno] * 0.02)
     niveltecnologico [turno] = avance + niveltecnologico[turno]
     print("El nivel tecnológico de" , civ[turno] ," es de %.2f" % niveltecnologico[turno])
 
@@ -94,17 +115,29 @@ def progresoeconomico():
     global civ
     global dinero
     global niveltecnologico
-    avance = (agricultura[turno] * 0.3 + industria[turno] * 0.6) * (niveltecnologico[turno] * 0.2)
+    avance = (agricultura[turno] * 0.03 + industria[turno] * 0.6) * (niveltecnologico[turno] * 0.0002) * (poblacion[turno] * 0.002)
     dinero[turno] = dinero[turno] + avance
     print(civ[turno]," ha conseguido %.2f" % avance)
     print(civ[turno], " tiene %.2f" % dinero[turno])
+
+def eventohambruna():
+    global edad
+    global nedad
+    global civ
+    global turno
+    global poblacion
+    global agricultura
+    print("Hambruna en los límites de", civ[turno]," en el año" , edad[nedad], ". Su economía y población han decrecido. El mundo está expectante.")
+    perdida = (randint(25,75) / 100)
+    agricultura[turno] = agricultura[turno] * perdida
+
 
 def progresomilitar():
     global dinero
     global podermilitar
     global belicismo
-    podermilitar[turno] = belicismo[turno] * niveltecnologico[turno] * (dinero[turno] *(belicismo[turno] * 0.005))
-    dinero[turno] = dinero[turno] - (belicismo[turno] * (dinero[turno] * 0.001))
+    podermilitar[turno] = podermilitar[turno] + (niveltecnologico[turno] * 0.05)* (dinero[turno] *(belicismo[turno] * 0.005))
+    dinero[turno] = dinero[turno] - (belicismo[turno] * (dinero[turno] * 0.01))
     print("El poder militar de" , civ[turno] ," es de %.2f" % podermilitar[turno])
 
 from funciones import repartofuncion
