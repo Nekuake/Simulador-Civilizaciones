@@ -58,9 +58,9 @@ def comienzoturno():
     global nedad
     global finishing
     global turno
-    if not nedad > 62:
+    if not nedad == 62:
         nedad = nedad + 1
-        print("Estamos en", edad[nedad])
+        print("  Estamos en", edad[nedad])
         turno = 0
     else:
         finishing = 1
