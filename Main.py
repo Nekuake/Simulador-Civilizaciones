@@ -66,23 +66,10 @@ def comienzoturno():
         finishing = 1
 
 
-def progresopoblacion():
-    global poblacion
-    global turno
-    global agricultura
-    global dinero
-    if poblacion[turno] > (agricultura[turno] * 100):
-        perdida = poblacion[turno] * (randint(25, 75) / 100)
-        poblacion[turno] = poblacion[turno] - perdida
-    else:
-        poblacion[turno] = poblacion[turno] * (agricultura[turno] * 0.75)
-    print("La población de", civ[turno], " es de %.0f" % poblacion[turno])
 
 
-def finish():
-    global finished
-    finished = 1
-    exit()
+
+
 
 
 def progresoturno():
@@ -113,6 +100,16 @@ def progresotecnologico():
     print("El nivel tecnológico de", civ[turno], " es de %.2f" % niveltecnologico[turno])
 
 
+def progresomilitar():
+    global dinero
+    global podermilitar
+    global belicismo
+    podermilitar[turno] = podermilitar[turno] + (niveltecnologico[turno] * 0.05) * (
+    dinero[turno] * (belicismo[turno] * 0.005))
+    dinero[turno] = dinero[turno] - (belicismo[turno] * (dinero[turno] * 0.01))
+    print("El poder militar de", civ[turno], " es de %.2f" % podermilitar[turno])
+
+
 def progresoeconomico():
     global agricultura
     global industria
@@ -125,6 +122,19 @@ def progresoeconomico():
     dinero[turno] = dinero[turno] + avance
     print(civ[turno], " ha conseguido %.2f" % avance)
     print(civ[turno], " tiene %.2f" % dinero[turno])
+
+
+def progresopoblacion():
+    global poblacion
+    global turno
+    global agricultura
+    global dinero
+    if poblacion[turno] > (agricultura[turno] * 100):
+        perdida = poblacion[turno] * (randint(25, 75) / 100)
+        poblacion[turno] = poblacion[turno] - perdida
+    else:
+        poblacion[turno] = poblacion[turno] * (agricultura[turno] * 0.75)
+    print("La población de", civ[turno], " es de %.0f" % poblacion[turno])
 
 
 def eventohambruna():
@@ -140,14 +150,10 @@ def eventohambruna():
     agricultura[turno] = agricultura[turno] * perdida
 
 
-def progresomilitar():
-    global dinero
-    global podermilitar
-    global belicismo
-    podermilitar[turno] = podermilitar[turno] + (niveltecnologico[turno] * 0.05) * (
-    dinero[turno] * (belicismo[turno] * 0.005))
-    dinero[turno] = dinero[turno] - (belicismo[turno] * (dinero[turno] * 0.01))
-    print("El poder militar de", civ[turno], " es de %.2f" % podermilitar[turno])
+def finish():
+    global finished
+    finished = 1
+    exit()
 
 
 from funciones import repartofuncion
