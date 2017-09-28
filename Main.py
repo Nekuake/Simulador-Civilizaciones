@@ -1,6 +1,7 @@
 # coding= utf-8
 # !/usr/bin/env python
 # -*- codcivdoning: utf-8 -*-
+# El script seguramente se quede abandonado en poco tiempo.
 from random import randint
 import os
 from funciones import repartofuncion
@@ -93,7 +94,7 @@ def progresotecnologico():
     global niveltecnologico
     global agricultura
     global industria
-    avance = (dinero[turno] * 0.001 * (sabiduria[turno] * 0.005)) * poblacion[turno] * 0.0005
+    avance = (dinero[turno] * 0.001 * (sabiduria[turno] * 0.05)) * poblacion[turno] * 0.005
     niveltecnologico[turno] = avance + niveltecnologico[turno]
     print("El nivel tecnológico de", civ[turno], " es de %.2f" % niveltecnologico[turno])
 
@@ -117,10 +118,12 @@ def progresoeconomico():
     global niveltecnologico
     avanceagricultura = poblacion[turno] * 0.01 * niveltecnologico[turno] * 0.1
     agricultura[turno] = avanceagricultura + agricultura[turno]
-    avance = (agricultura[turno] * 0.003 + industria[turno] * 0.06) * (niveltecnologico[turno] * 0.0002) * (poblacion[turno] * 0.002)
+    avance = (agricultura[turno] * 0.003 + industria[turno] * 0.06) * (niveltecnologico[turno] * 0.0002) * (
+    poblacion[turno] * 0.002)
     dinero[turno] = dinero[turno] + avance
     print(civ[turno], " ha conseguido %.2f" % avance)
     print(civ[turno], " tiene %.2f" % dinero[turno])
+    print(civ[turno], " tiene un nivel de agricultura de %.1f" % agricultura[turno])
 
 
 def progresopoblacion():
